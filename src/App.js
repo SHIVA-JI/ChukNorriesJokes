@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Categories from './category/Categories';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(false)
+
+
+
+   useEffect(() => {
+     let fetchCategories = async () => {
+       setLoading(true)
+       const fetchApiData = await fetch("https://api.chucknorris.io/jokes/categories")
+       const changeToJson = await fetchApiData.json()
+       setLoading(false)
+       setCategories(changeToJson);
+       }   
+       fetchCategories()
+   }, [])
+   
+  
+  return (<>
+    {loading ? <div className="flex flex-col items-center justify-center  mt-10"> <div className="lds-facebook w-full  "><div></div><div></div><div></div></div></div>
+      : <div className="  h-fit flex flex-col items-center justify-center">
+           <h1 className="m-3 text-4xl text-yellow-500 animate-bounce font-bold ">Chuck Norries</h1>
+      <Categories categories={categories}/>
+    </div>}
+    </>
   );
 }
 
