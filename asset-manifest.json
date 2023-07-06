@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ChukNorriesJokes/static/css/main.60445137.css",
+    "main.js": "/ChukNorriesJokes/static/js/main.ca617b0d.js",
+    "index.html": "/ChukNorriesJokes/index.html",
+    "main.60445137.css.map": "/ChukNorriesJokes/static/css/main.60445137.css.map",
+    "main.ca617b0d.js.map": "/ChukNorriesJokes/static/js/main.ca617b0d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.60445137.css",
+    "static/js/main.ca617b0d.js"
+  ]
+}
